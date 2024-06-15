@@ -1,0 +1,77 @@
+#confirm-button {
+    cursor: pointer;
+}
+
+.box {
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.box>* {
+    padding: 10px;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: white;
+    margin: 10px;
+}
+
+.table {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+}
+
+.talent-container {
+    background-color: red;
+}
+
+#build-link {
+    margin-right: 10px;
+}
+
+.talent {
+    width: 100%;
+}
+
+.category {
+    margin-bottom: 30px;
+    border-top: black;
+}
+
+.talent.rare {
+    color: red;
+}
+
+.talent.advanced {
+    color: #0765ff;
+}
+
+.talent.oath {
+    color: blue;
+}
+
+.talent.quest {
+    color: yellow;
+}
+
+.talent.selected {
+    opacity: 0.5;
+}
+
+#button-holder {
+    height: 6vh;
+    display: flex;
+}
+
+#button-holder>* {
+    background-color: white;
+    height: 100%;
+    line-height: 220%;
+    width: 100%;
+    text-align: center;
+    margin-right: 20px;
+    cursor: pointer;
+    color: black;
+}
