@@ -328,6 +328,7 @@ document.querySelector("#copy").onclick = function (){
             copyText += `+ ${ii.innerText}\n`;
         }
     }
-
-    console.log(copyText);
+    
+    navigator.clipboard.writeText(copyText);
+    alert("Copied");
 }
