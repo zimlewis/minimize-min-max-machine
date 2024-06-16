@@ -291,11 +291,13 @@ function getAvailableTalents(build) {
             "base": allTalents[talent].reqs.base,
             "weapon": allTalents[talent].reqs.weapon
         };
-
-        if (checkRequirements(attributes, talentStatReq).preShrine || checkRequirements(attributes, talentStatReq).postShrine) {
-            if (talent == "neuroplasticity" && ((attributes.preShrine.willpower >= 35 || attributes.preShrine.charisma >= 35 || attributes.preShrine.intelligence >= 35) || (attributes.postShrine.willpower >= 35 || attributes.postShrine.charisma >= 35 || attributes.postShrine.intelligence >= 35))){
-                talents.push(talent);
-            }
+        // Not my fault, Neuroplasicity in deepwoken api's talent endpoint have multiple requirement, different from all other talent w/ multiple way to get(e.g: wyvern's claw or what ever it is has 3 version of it for each weapon attribute)
+        if (talent == "neuroplasticity"){
+            if ((attributes.preShrine.base.Willpower >= 35 || attributes.preShrine.base.Charisma >= 35 || attributes.preShrine.base.Intelligence >= 35) || (attributes.postShrine.base.Willpower >= 35 || attributes.postShrine.base.Charisma >= 35 || attributes.postShrine.base.Intelligence >= 35)){
+                talents.push(talent) 
+            };
+        }	
+        else if (checkRequirements(attributes, talentStatReq).preShrine || checkRequirements(attributes, talentStatReq).postShrine) {
             if (allTalents[talent].rarity === "Advanced" || allTalents[talent].rarity === "Rare" || allTalents[talent].rarity === "Common" || allTalents[talent].rarity === "Quest" || allTalents[talent].rarity === "Oath") {
                 if (allTalents[talent].rarity === "Oath" && !allTalents[talent].category.includes(build.stats.meta.Oath)) {
                     continue
