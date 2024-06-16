@@ -293,6 +293,9 @@ function getAvailableTalents(build) {
         };
 
         if (checkRequirements(attributes, talentStatReq).preShrine || checkRequirements(attributes, talentStatReq).postShrine) {
+            if (talent == "neuroplasticity" && ((attributes.preShrine.willpower >= 35 || attributes.preShrine.charisma >= 35 || attributes.preShrine.intelligence >= 35) || (attributes.postShrine.willpower >= 35 || attributes.postShrine.charisma >= 35 || attributes.postShrine.intelligence >= 35))){
+                talents.push(talent);
+            }
             if (allTalents[talent].rarity === "Advanced" || allTalents[talent].rarity === "Rare" || allTalents[talent].rarity === "Common" || allTalents[talent].rarity === "Quest" || allTalents[talent].rarity === "Oath") {
                 if (allTalents[talent].rarity === "Oath" && !allTalents[talent].category.includes(build.stats.meta.Oath)) {
                     continue
